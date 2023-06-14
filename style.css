@@ -90,6 +90,10 @@ form {
 @media (max-width: 532px) {
     form {
         width: 96vw;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
     }
 }
 
@@ -104,6 +108,11 @@ form {
 
 .form-group {
     padding: .5rem 1.8rem;
+}
+@media (max-width: 961px) {
+    .form-group {
+        width: 29vw;
+    }
 }
 
 @media (max-width: 532px) {
@@ -120,6 +129,12 @@ form {
     position: relative;
     padding: .5rem 1.8rem;
     width: 20vw;
+}
+
+@media (max-width: 532px) {
+    .form-control {
+        width: 39vw;
+    }
 }
 
 &.thick {
