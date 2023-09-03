@@ -6,6 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form</title>
     <link rel="stylesheet" href="./style.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("OoVQhHafjiNYWu591");
+        })();
+    </script>
 </head>
 
 <body>
@@ -478,12 +485,11 @@
 
             <!-- Submit btn -->
             <div class="button">
-                <button type="submit" class="btn btn-primary" tabIndex="-1">Send message</button>
+                <button type="submit" id="sendMessageButton" class="btn btn-primary" tabIndex="-1">Send message</button>
             </div>
         </form>
     </div>
 
-    <script src="https://smtpjs.com/v3/smtp.js"></script>
     <script src="script.js"></script>
 </body>
 

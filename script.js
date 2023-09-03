@@ -1,17 +1,32 @@
-const btn = document.querySelector(".btn");
-        btn.addEventListener("click", (e) => {
-            e.preventDefault();
+document.getElementById("sendMessageButton").addEventListener("click", function (event) {
+  event.preventDefault(); // Prevent the default form submission behavior if this button is inside a form
+  sendMail(); // Call the sendMail() function
+});
 
-            const name = document.getElementById('formName').value;
-            const email = document.getElementById('formEmail').value;
-            const message = document.getElementById('formMessage').value;
-            const body = `name: ${name} <br /> email: ${email} <br /> message : ${message}`;
+  const sendMail = () => {
+    const params = {
+      name: document.getElementById("formName").value,
+      email: document.getElementById('formEmail').value,
+      message: document.getElementById('formMessage').value,
+    };
+    const serviceID = "service_jydllid"
+    const templateID = "template_sjc4tgo"
 
-            Email.send({
-                SecureToken: "97a795ae-4446-4ff1-a881-2173d93172dc",
-                To: "atanumajumder@gmail.com",
-                From: "atanumajumder2004@gmail.com",
-                Subject: "Contact Message",
-                Body: body,
-            }).then((message) => alert(message));
-        });
+    emailjs.send(serviceID, templateID, params)
+      .then(
+        res => {
+          document.getElementById("formName").value = "",
+
+            document.getElementById('formEmail').value = "";
+
+          document.getElementById('formMessage').value = "";
+          console.log(res)
+          alert("your message sent succesfully")
+
+        }
+      )
+      .catch(err => console.log(err));
+  };
+
+
+
